@@ -8,7 +8,7 @@ module ActiveRecord::ConnectionAdapters
       end
 
       def status
-        PGconn::CONNECTION_BAD
+        PG::Connection::CONNECTION_BAD
       end
     end
 

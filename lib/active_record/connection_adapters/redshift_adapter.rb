@@ -185,7 +185,7 @@ module ActiveRecord
           end
 
           def connection_active?
-            @connection.status == PGconn::CONNECTION_OK
+            @connection.status == PG::Connection::CONNECTION_OK
           rescue PGError
             false
           end
@@ -565,7 +565,7 @@ module ActiveRecord
         # Connects to a PostgreSQL server and sets up the adapter depending on the
         # connected server's characteristics.
         def connect
-          @connection = PGconn.connect(@connection_parameters)
+          @connection = PG::Connection.connect(@connection_parameters)
 
           configure_connection
         rescue ::PG::Error => error
